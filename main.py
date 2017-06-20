@@ -1,15 +1,21 @@
 from __future__ import division
 import numpy as np
-import matplotlib.pyplot as plt
+import pandas as pd
 
-class Model:
+class Model (object):
 	def __init__ (self):
+		'''initialize a model for linear regression'''
 		self.m = np.random.randn()
 		self.b = np.random.randn()
+
 	def eval(self, x):
+		'''use the model (the line) to make a prediction'''
 		return self.m * x + self.b
-	def cost(self, xs, ys):
+
+	def cost(self, inputs, outputs):
+		'''mean squared error function'''
 		return 0.5 * np.mean((self.eval(xs)-ys) ** 2)
+
 	def BGD(self, xs, ys, alpha, epochs):
 		for e in xrange(epochs):
 			nabla_m = np.mean((self.eval(xs) - ys) * xs)
@@ -18,18 +24,6 @@ class Model:
 			self.b = self.b - alpha * nabla_b
 			print "Loss = {}".format(self.cost(xs, ys))
 
-def get_data(n):
-	xs = np.arange(-40, 80, 80 / n)
-	ys = xs + 3.5*np.random.randn(xs.shape[0])
-	return xs, ys
-
-xs, ys = get_data(50)
-plt.scatter(xs, ys)
-plt.show()
-reg = Model()
-
-for i in xrange(10):
-	reg.BGD(xs, ys, 0.0001, 1)
-	plt.scatter(xs, ys)
-	plt.plot(xs, reg.eval(xs))
-	plt.show()
+if __name__ == "main":
+	m = Model()
+	print "model created!"
