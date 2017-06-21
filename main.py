@@ -34,7 +34,7 @@ def get_points(PATH):
 		intel_avg = 0
 		match_avg = 0
 		potential_partners = 0
-		while data[n][1] == subject_num and n < len(data):
+		while n < len(data) and data[n][1] == subject_num:
 			intel_avg += data[n][2]
 			match_avg += data[n][3]
 			potential_partners += 1
@@ -46,15 +46,15 @@ def get_points(PATH):
 	intels = (intels - np.mean(intels)) / np.std(intels)
 	matches = np.array([d[1] for d in subjects])
 	matches = (matches - np.mean(matches)) / np.std(matches)
-	subjects_normalized = [(x, y) for x, y in zip(intels, matches)]
-	return subjects_normalized
+	return (intels, matches)
 
 if __name__ == "__main__":
-	points = get_points('data.csv')
+	xs, ys = get_points('data.csv')
 	print "points loaded" #improve formatting later, ERIC
 	m = Model()
 	print "model created!"
-	xs = [d[0] for d in points]
-	ys = [d[1] for d in points]
+	m.BGD(xs, ys, 0.1, 200)
 	plt.scatter(xs, ys)
+	plt.plot(xs, m.eval(xs))
 	plt.show()
+	print "m = {}, b = {}".format(m.m, m.b)
