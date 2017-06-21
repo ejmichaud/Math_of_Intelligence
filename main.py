@@ -25,8 +25,8 @@ class Model (object):
 			nabla_m = np.mean((self.eval(xs) - ys) * xs) #deriv. with respect to m
 			nabla_b = np.mean(self.eval(xs) - ys) #deriv. with respect to b
 			#parameter updates...
-			self.m = self.m - alpha * nabla_m
-			self.b = self.b - alpha * nabla_b
+			self.m = self.m - learning_rate * nabla_m
+			self.b = self.b - learning_rate * nabla_b
 			#Periodically logs the model's progress
 			if e % 20 == 0:
 				print "Epoch {} Loss = {}".format(e, self.cost(xs, ys))
@@ -51,14 +51,19 @@ def get_points(PATH):
 		match_avg /= potential_partners
 		subjects.append((intel_avg, match_avg))
 	intels = np.array([d[0] for d in subjects])
+	print "Mean Perceived Intelligence: {}".format(np.mean(intels))
 	print "Intelligence std: {}".format(np.std(intels)) #log the std. deviation of the subjects' perceived intelligence
 	intels = (intels - np.mean(intels)) / np.std(intels) #gaussian normalize the intelligence values
 	matches = np.array([d[1] for d in subjects])
-	print "Match success std: {}".format(np.std(matches)) #log the std. deviation of the subjects' match success
+	print "Mean Match Success: {}".format(np.mean(matches))
+	print "Match Success std: {}".format(np.std(matches)) #log the std. deviation of the subjects' match success
 	matches = (matches - np.mean(matches)) / np.std(matches) #gaussian normalize the match success values
 	return (intels, matches)
 
 if __name__ == "__main__":
+	print (" <--- ARE PERCEIVED INTELLIGENCE AND SPEED-DATING SUCCESS CORRELATED? -->")
+	print (" <--- Let's find out... --->")
+
 	xs, ys = get_points('data.csv')
 	print ("<--- POINTS LOADED --->")
 	m = Model()
