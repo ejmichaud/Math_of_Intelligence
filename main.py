@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class Model (object):
 	def __init__ (self):
-		'''initialize a model for linear regression'''
+		'''initialize our linear model with a random slope and y intercept'''
 		self.m = np.random.randn()
 		self.b = np.random.randn()
 
@@ -12,21 +12,29 @@ class Model (object):
 		'''use the model (the line) to make a prediction'''
 		return self.m * x + self.b
 
-	def cost(self, inputs, outputs):
-		'''mean squared error function'''
+	def cost(self, xs, ys):
+		'''Evaluates the model error on a set of inputs (xs) and outputs (ys)
+		with a mean squared cost function. Multiply by one half so the Power
+		Rule expression is simplified later...'''
 		return 0.5 * np.mean((self.eval(xs)-ys) ** 2)
 
-	def BGD(self, xs, ys, alpha, epochs):
+	def BGD(self, xs, ys, learning_rate, epochs):
+		'''Batch Gradient Descent: takes data inputs, outputs, learning rate
+		and number of epochs to train for'''
 		for e in xrange(epochs):
-			nabla_m = np.mean((self.eval(xs) - ys) * xs)
-			nabla_b = np.mean(self.eval(xs) - ys)
+			nabla_m = np.mean((self.eval(xs) - ys) * xs) #deriv. with respect to m
+			nabla_b = np.mean(self.eval(xs) - ys) #deriv. with respect to b
+			#parameter updates...
 			self.m = self.m - alpha * nabla_m
 			self.b = self.b - alpha * nabla_b
-			print "Loss = {}".format(self.cost(xs, ys))
+			#Periodically logs the model's progress
+			if e % 20 == 0:
+				print "Epoch {} Loss = {}".format(e, self.cost(xs, ys))
 
 def get_points(PATH):
 	data = np.genfromtxt(PATH, delimiter=',') #loads the csv into an array
-	print data.shape
+	'''The subjects list contains tuples corresponding to each study subject's
+	average perceived intelligence and average match success'''
 	subjects = []
 	n = 1
 	while n < len(data):
@@ -43,18 +51,20 @@ def get_points(PATH):
 		match_avg /= potential_partners
 		subjects.append((intel_avg, match_avg))
 	intels = np.array([d[0] for d in subjects])
-	intels = (intels - np.mean(intels)) / np.std(intels)
+	print "Intelligence std: {}".format(np.std(intels)) #log the std. deviation of the subjects' perceived intelligence
+	intels = (intels - np.mean(intels)) / np.std(intels) #gaussian normalize the intelligence values
 	matches = np.array([d[1] for d in subjects])
-	matches = (matches - np.mean(matches)) / np.std(matches)
+	print "Match success std: {}".format(np.std(matches)) #log the std. deviation of the subjects' match success
+	matches = (matches - np.mean(matches)) / np.std(matches) #gaussian normalize the match success values
 	return (intels, matches)
 
 if __name__ == "__main__":
 	xs, ys = get_points('data.csv')
-	print "points loaded" #improve formatting later, ERIC
+	print ("<--- POINTS LOADED --->")
 	m = Model()
-	print "model created!"
 	m.BGD(xs, ys, 0.1, 200)
+	print ("<--- RESULTS --->")
+	print "m = {}, b = {}".format(m.m, m.b)
 	plt.scatter(xs, ys)
 	plt.plot(xs, m.eval(xs))
 	plt.show()
-	print "m = {}, b = {}".format(m.m, m.b)
