@@ -61,8 +61,8 @@ def get_points(PATH):
 	return (intels, matches)
 
 if __name__ == "__main__":
-	print (" <--- ARE PERCEIVED INTELLIGENCE AND SPEED-DATING SUCCESS CORRELATED? -->")
-	print (" <--- Let's find out... --->")
+	print ("<--- ARE PERCEIVED INTELLIGENCE AND SPEED-DATING SUCCESS CORRELATED? -->")
+	print ("<--- Let's find out... --->")
 
 	xs, ys = get_points('data.csv')
 	print ("<--- POINTS LOADED --->")
