@@ -25,7 +25,7 @@ First, I removed all irrelevant columns (essentially everything but the intellig
 
 All operations pertaining to initialization and fitting of the linear line are abstracted to a **Model** class. This organization, where the model’s parameters and training methods are grouped together cleans things up and scales well when the complexity of the model increases (such as in neural networks).
 
-#Results
+# Results
 
 First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15**. Here’s what the regression produced:
 
