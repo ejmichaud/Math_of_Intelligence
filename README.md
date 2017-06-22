@@ -35,5 +35,5 @@ Now frankly that looks a bit nebulous to me, but we still get a result! The slop
 
 So people _do_ seem to look for intelligence, more or less, in prospective partners. Aggressively extrapolating on this correlation, it becomes obvious that the most desirable man to have ever lived, ladies and gentleman, is…
 
-#####John von Neumann
+##### John von Neumann
 ![Alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/HD.3F.191_%2811239892036%29.jpg/220px-HD.3F.191_%2811239892036%29.jpg?raw=true)
