@@ -6,7 +6,7 @@ This is a submission for the challenge from [this](https://www.youtube.com/watch
 - numpy
 - matplotlib
 
-Works with python 2 and 3
+Works with Python 2 and 3
 
 # Overview
 This code helps to answer an essential question:
@@ -23,6 +23,10 @@ First, I removed all irrelevant columns (essentially everything but the intellig
 
 ## Code Organization
 
-All operations pertaining to initialization and fitting of the linear line are abstracted to a **Model** class. This organization, where a model’s parameters are stored in the same object
+All operations pertaining to initialization and fitting of the linear line are abstracted to a **Model** class. This organization, where the model’s parameters and training methods are grouped together cleans things up and scales well when the complexity of the model increases (such as in neural networks).
 
-mimics the organization of more complex machine learning models, such as neural networks
+#Results
+
+First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15**. Here’s what the regression produced:
+
+![Alt text](https://www.dropbox.com/s/no2u7xv68kl4zam/Screen%20Shot%202017-06-21%20at%207.03.09%20PM.png?dl=0)

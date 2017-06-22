@@ -72,4 +72,6 @@ if __name__ == "__main__":
 	print ("m = {}, b = {}".format(m.m, m.b))
 	plt.scatter(xs, ys)
 	plt.plot(xs, m.eval(xs))
+	plt.xlabel("intelligence")
+	plt.ylabel("match rate")
 	plt.show()
