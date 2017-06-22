@@ -27,7 +27,7 @@ All operations pertaining to initialization and fitting of the linear line are a
 
 # Results
 
-First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15**. Now here’s what the regression produced:
+First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15** respectively. Now here’s what the regression produced:
 
 ![Alt text](https://www.dropbox.com/s/6wsp1k7go2oo240/Screen%20Shot%202017-06-21%20at%207.39.59%20PM.png?raw=true)
 
