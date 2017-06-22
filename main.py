@@ -21,7 +21,7 @@ class Model (object):
 	def BGD(self, xs, ys, learning_rate, epochs):
 		'''Batch Gradient Descent: takes data inputs, outputs, learning rate
 		and number of epochs to train for'''
-		for e in xrange(epochs):
+		for e in range(epochs):
 			nabla_m = np.mean((self.eval(xs) - ys) * xs) #deriv. with respect to m
 			nabla_b = np.mean(self.eval(xs) - ys) #deriv. with respect to b
 			#parameter updates...
@@ -29,7 +29,7 @@ class Model (object):
 			self.b = self.b - learning_rate * nabla_b
 			#Periodically logs the model's progress
 			if e % 20 == 0:
-				print "Epoch {} Loss = {}".format(e, self.cost(xs, ys))
+				print ("Epoch {} Loss = {}".format(e, self.cost(xs, ys)))
 
 def get_points(PATH):
 	data = np.genfromtxt(PATH, delimiter=',') #loads the csv into an array
@@ -51,12 +51,12 @@ def get_points(PATH):
 		match_avg /= potential_partners
 		subjects.append((intel_avg, match_avg))
 	intels = np.array([d[0] for d in subjects])
-	print "Mean Perceived Intelligence: {}".format(np.mean(intels))
-	print "Intelligence std: {}".format(np.std(intels)) #log the std. deviation of the subjects' perceived intelligence
+	print ("Mean Perceived Intelligence: {} / 10".format(np.mean(intels)))
+	print ("Intelligence std: {}".format(np.std(intels))) #log the std. deviation of the subjects' perceived intelligence
 	intels = (intels - np.mean(intels)) / np.std(intels) #gaussian normalize the intelligence values
 	matches = np.array([d[1] for d in subjects])
-	print "Mean Match Success: {}".format(np.mean(matches))
-	print "Match Success std: {}".format(np.std(matches)) #log the std. deviation of the subjects' match success
+	print ("Mean Match Success: {}%".format(np.mean(matches) * 100))
+	print ("Match Success std: {}".format(np.std(matches))) #log the std. deviation of the subjects' match success
 	matches = (matches - np.mean(matches)) / np.std(matches) #gaussian normalize the match success values
 	return (intels, matches)
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 	m = Model()
 	m.BGD(xs, ys, 0.1, 200)
 	print ("<--- RESULTS --->")
-	print "m = {}, b = {}".format(m.m, m.b)
+	print ("m = {}, b = {}".format(m.m, m.b))
 	plt.scatter(xs, ys)
 	plt.plot(xs, m.eval(xs))
 	plt.show()
