@@ -27,9 +27,9 @@ All operations pertaining to initialization and fitting of the linear line are a
 
 # Results
 
-First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15**. Here’s what the regression produced:
+First off, the standard deviation for the intelligence scores and positive match rate worked out to be about **1.0**, and **0.15**. Now here’s what the regression produced:
 
-![Alt text](https://www.dropbox.com/s/no2u7xv68kl4zam/Screen%20Shot%202017-06-21%20at%207.03.09%20PM.png?raw=true)
+![Alt text](https://www.dropbox.com/s/6wsp1k7go2oo240/Screen%20Shot%202017-06-21%20at%207.39.59%20PM.png?raw=true)
 
 Now frankly that looks a bit nebulous to me, but we still get a result! The slope of that line is about **0.18**, which is _very interesting_. There does indeed seem to be some positive correlation between a person’s perceived intelligence and their speed-dating success. More specifically, that a 1 standard deviation improvement in your perceived intelligence corresponds with over a 1 standard deviation increase in your speed-dating success!
 
