@@ -33,6 +33,7 @@ First off, the standard deviation for the intelligence scores and positive match
 
 Now frankly that looks a bit nebulous to me, but we still get a result! The slope of that line is about **0.18**, which is _very interesting_. There does indeed seem to be some positive correlation between a person’s perceived intelligence and their speed-dating success. More specifically, that a 1 standard deviation improvement in your perceived intelligence corresponds with over a 1 standard deviation increase in your speed-dating success!
 
-So people _do_ seem to look for intelligence, more or less, in prospective partners. Aggressively extrapolating on this correlation, it becomes obvious that the most desirable man to have ever lived, quite obviously, was John von Neumann:
+So people _do_ seem to look for intelligence, more or less, in prospective partners. Aggressively extrapolating on this correlation, it becomes obvious that the most desirable man to have ever lived, ladies and gentleman, is…
 
+#####John von Neumann
 ![Alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/HD.3F.191_%2811239892036%29.jpg/220px-HD.3F.191_%2811239892036%29.jpg?raw=true)
