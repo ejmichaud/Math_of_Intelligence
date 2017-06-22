@@ -5,6 +5,7 @@ This is a submission for the challenge from [this](https://www.youtube.com/watch
 ### Dependencies
 - numpy
 - matplotlib
+
 Works with python 2 and 3
 
 # Overview
